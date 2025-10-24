@@ -38,7 +38,7 @@ function M:peek(job)
         i = i + 1
         if i > job.skip then
             -- Add the line directly to our collected text without adding extra newlines
-            collected_lines = collected_lines .. next
+            collected_lines = collected_lines .. next:gsub("\r", "")
             last_line = last_line + 1
         end
     until last_line >= max_lines
